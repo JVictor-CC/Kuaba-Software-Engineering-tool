@@ -6,4 +6,7 @@ KSE uses the Kuaba approach to support the design rationale record during softwa
 References: 
 
 1 - Medeiros, A. P.; Schwabe, D. Kuaba approach: Integrating formal semantics and design rationale representation to support design reuse. Artificial Intelligence for Engineering Design, Analysis and Manufacturing, v. 22, p. 399-419, 2008.
-2 - 
+
+2 - Nunes, T. R. ; Medeiros, A. P. KSE: Ferramenta de Apoio à Captura e Representação semi-automática de Design Rationale em Engenharia de Software. In: XXIII Simpósio Brasileiro de Engenharia de Software (SBES), 2009, Fortaleza. XVI Sessão de Ferramentas, 2009.
+
+3 - Diniz, B. S.; Medeiros, A. P. Utilizando Rationale para apoiar Reúso de Design de Software na ferramenta KSE. In: Congresso Brasileiro de Software: Teoria e Prática (CBSoft2012 - Tools), 2012, Natal, RN. III Congresso Brasileiro de Software: Teoria e Prática, 2012.
