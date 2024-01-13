@@ -214,7 +214,7 @@
             <Tool id="CreateInFavorOfLink" label="In Favor Of" tooltip="In Favor Of (Link)" image="res/icons/inFavorOf_24.png">
                 <Scope-source metaclass="Class" stereotype="kuabaArgument"/>
                 <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
-                <Handler class="Link">
+                <Handler class="kuaba.Module.command.InFavorOfLinkCommand">
                     <HParameter name="name" value="In Favor Of"/>
                     <HParameter name="metaclass" value="Dependency"/>
                     <HParameter name="stereotype" value="inFavorOf"/>
@@ -223,7 +223,7 @@
             <Tool id="CreateObjectsToLink" label="Objects To" tooltip="Objects To (Link)" image="res/icons/objectsTo_24.png">
                 <Scope-source metaclass="Class" stereotype="kuabaArgument"/>
                 <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
-                <Handler class="Link">
+                <Handler class="kuaba.Module.command.ObjectsToLinkCommand">
                     <HParameter name="name" value="Objects To"/>
                     <HParameter name="metaclass" value="Dependency"/>
                     <HParameter name="stereotype" value="objectsTo"/>
@@ -234,7 +234,7 @@
                 <Scope-target metaclass="Class" stereotype="kuabaQuestion"/>
                 <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
                 <Scope-target metaclass="Class" stereotype="kuabaArgument"/>
-                <Handler class="Link">
+                <Handler class="kuaba.Module.command.SuggestLinkCommand">
                     <HParameter name="name" value="Suggest"/>
                     <HParameter name="metaclass" value="Dependency"/>
                     <HParameter name="stereotype" value="suggestLink"/>
