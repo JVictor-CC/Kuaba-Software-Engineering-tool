@@ -96,6 +96,10 @@
     </Profiles>
     <Gui>
         <Commands>
+            <Command id="TransformCIMToPIM" label="CIM To PIM" tooltip="Transform the selected discussion model (CIM) to a PIM" image="res/icons/pim_transformation_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="CIMPackage"/>
+                <Handler class="kuaba.Module.command.TransformCIMToPIM"/>
+            </Command>
             <Command id="CreateKuabaPackage" label="Kuaba Package" tooltip="Create a Kuaba Package" image="res/icons/kuaba_package_24.png" group="" modify-model="false" group-image="">
                 <Scope metaclass="Project"/>
                 <Handler class="ElementCreate">
@@ -245,6 +249,7 @@
             </Tool>
         </Tools>
         <ContextualMenu>
+            <CommandRef refid="TransformCIMToPIM"/>
             <CommandRef refid="CreateKuabaPackage"/>
             <CommandRef refid="CreateCIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
             <CommandRef refid="CreatePIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
