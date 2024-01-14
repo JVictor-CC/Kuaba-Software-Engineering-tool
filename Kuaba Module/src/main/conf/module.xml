@@ -52,7 +52,7 @@
                 <Icon path="res/icons/question_24.png"/>
                 <Image path="res/icons/question_48.png"/>
                 <TagTypes>
-                    <TagType name="Type" uid="81403e46-5a66-47fa-aa4c-0542ab0f54fa" label="Type" parameter-card="1" is-hidden="true" is-signed="false"/>
+                    <TagType name="Type" uid="81403e46-5a66-47fa-aa4c-0542ab0f54fa" label="Type" parameter-card="1" is-hidden="false" is-signed="false"/>
                 </TagTypes>
             </Stereotype>
             <Stereotype name="kuabaIdea" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Idea" uid="31138b13-dc02-44ea-a065-97b0ce173b5c">
@@ -62,6 +62,9 @@
             <Stereotype name="kuabaArgument" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Argument" uid="53cddfd9-92c1-4564-b8f8-96b3141c5a67">
                 <Icon path="res/icons/arguments_24.png"/>
                 <Image path="res/icons/arguments_48.png"/>
+                <TagTypes>
+                    <TagType name="DisplayArguments" uid="83d3ea64-25b7-437f-810b-dea174963539" label="Display Arguments" parameter-card="1" is-hidden="true" is-signed="false"/>
+                </TagTypes>
             </Stereotype>
             <Stereotype name="isAddressedBy" metaclass="AssociationEnd" is-hidden="false" label="Decision Link" uid="3b7bfd94-2d48-439c-a8bc-a430c06ccb7d">
                 <Icon path=""/>
@@ -302,6 +305,9 @@
                 </Handler>
             </DiagramType>
         </Diagrams>
+        <Views>
+            <PropertyPage id="KuabaPropertyPage" class="kuaba.Module.properties.KuabaPropertyPage" label="Kuaba" image="res/icons/kuaba_propertypage_24.png"/>
+        </Views>
     </Gui>
     <Dependencies/>
     <Resources>
