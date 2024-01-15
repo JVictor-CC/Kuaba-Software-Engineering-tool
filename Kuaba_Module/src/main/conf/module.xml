@@ -96,13 +96,13 @@
     </Profiles>
     <Gui>
         <Commands>
-            <Command id="TransformationMapping" label="TransformationMapping" tooltip="TransformationMapping" image="res/icons/TransformationCommand_16.png" group="" modify-model="false" group-image="">
-                <Scope metaclass="ModelTree"/>
-                <Handler class="kuaba.Module.command.TransformationCommand"/>
-            </Command>
-            <Command id="TransformCIMToPIM" label="CIM To PIM" tooltip="Transform the selected discussion model (CIM) to a PIM" image="res/icons/pim_transformation_24.png" group="" modify-model="true" group-image="">
+            <Command id="TransformCIMToPIM" label="CIM To PIM" tooltip="Transform the selected discussion model (CIM) to a PIM Model" image="res/icons/pim_transformation_24.png" group="" modify-model="true" group-image="">
                 <Scope metaclass="Package" stereotype="CIMPackage"/>
                 <Handler class="kuaba.Module.command.TransformCIMToPIM"/>
+            </Command>
+            <Command id="TransformPIMToPSM" label="PIM To PSM" tooltip="Transform the selected PIM to a PSM" image="res/icons/psm_transformation_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="PIMPackage"/>
+                <Handler class="kuaba.Module.command.TransformationCommand"/>
             </Command>
             <Command id="CreateKuabaPackage" label="Kuaba Package" tooltip="Create a Kuaba Package" image="res/icons/kuaba_package_24.png" group="" modify-model="false" group-image="">
                 <Scope metaclass="Project"/>
@@ -254,7 +254,7 @@
         </Tools>
         <ContextualMenu>
             <CommandRef refid="TransformCIMToPIM"/>
-            <CommandRef refid="TransformationMapping"/>
+            <CommandRef refid="TransformPIMToPSM"/>
             <CommandRef refid="CreateKuabaPackage"/>
             <CommandRef refid="CreateCIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
             <CommandRef refid="CreatePIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>

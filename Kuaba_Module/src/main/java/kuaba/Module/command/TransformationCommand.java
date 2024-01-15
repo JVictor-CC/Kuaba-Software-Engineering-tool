@@ -17,15 +17,18 @@ public class TransformationCommand extends DefaultModuleCommandHandler {
 	
     private static final String error = null;
 
-    private org.modelio.metamodel.uml.statik.Package target;
-
 	public TransformationCommand() {
         super();
     }
 
     @Override
     public boolean accept(List<MObject> selectedElements, IModule module) {
-        return selectedElements.size() == 1;
+    	IModelingSession session = module.getModuleContext().getModelingSession();
+    	Stereotype PIMPackage = session.getMetamodelExtensions().getStereotype("KuabaModule", "PIMPackage", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Package.class));
+    	if (selectedElements.size() == 1 && selectedElements.get(0) instanceof Package && ((Package) selectedElements.get(0)).isStereotyped(PIMPackage)) {
+    		return selectedElements.size() == 1;
+    	}
+        return false;
     }
   
     
@@ -36,23 +39,32 @@ public class TransformationCommand extends DefaultModuleCommandHandler {
         IModelingSession session = module.getModuleContext().getModelingSession();
 
         // Resgata o elemento selecionado na aba de seleção da ferramenta, checando se ele foi executado em um pacote
-        if (selectedElements.size() == 1 && selectedElements.get(0) instanceof org.modelio.metamodel.uml.statik.Package) {
+        if (selectedElements.size() == 1 && selectedElements.get(0) instanceof Package) {
             
             // Resgata a referência do pacote em que o comando é executado
 
-        	org.modelio.metamodel.uml.statik.Package selectedPackage = (org.modelio.metamodel.uml.statik.Package) selectedElements.get(0);
-  
-            //Efetua o processamento com a referência do pacote selecionado
+        	Package selectedPackage = (Package) selectedElements.get(0);
+        	Package parent = (Package) selectedPackage.getOwner();
+            
+        	try (ITransaction t = session.createTransaction("Process Package Contents")) {
+        		Stereotype PSMPackage = session.getMetamodelExtensions().getStereotype("KuabaModule", "PSMPackage", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Package.class));
+                Package target = session.getModel().createPackage("PSM Package", parent, PSMPackage); 
+             
+                //Efetua o processamento com a referência do pacote selecionado
+                processPackageContents(session, selectedPackage, module, target);
+                t.commit();
+        	} catch (Exception e) {
+        		module.getModuleContext().getLogService().error(e);
+        	}
         	
-            	processPackageContents(session, selectedPackage, module);
             	
-            } else {
+       } else {
             	// Exibe uma mensagem de erro para o usuário, informando para selecionar um pacote
             	MessageDialog.openInformation(null, "ERROR", "Please Select a Package to run this script");
         }
     }
 
-    public void processPackageContents(IModelingSession session, org.modelio.metamodel.uml.statik.Package sourcePackage, IModule module) {
+    public void processPackageContents(IModelingSession session, Package sourcePackage, IModule module, Package target) {
     	
     	// Cria uma transação para efetuar mudanças dentro do modelo, é um passo obrigatório para que não gere erro quando feita a mudança no modelo, note que ele precisa de um "catch" para tratar um possivel erro na transação do modelo
         try (ITransaction t = session.createTransaction("Process Package Contents")) {
@@ -64,10 +76,6 @@ public class TransformationCommand extends DefaultModuleCommandHandler {
         	Stereotype serviceStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "Service", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
          	Stereotype aggregateRootStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "AggregateRoot", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
 
-
-        	// Dentro dessa função, crio o pacote "pacote selecionado + PSM" dentro do pacote selecionado, para inserir as novas classes criadas a partir do pacote selecionado, que seria o PIM
-
-            target = session.getModel().createPackage(String.format("%s_PSM", sourcePackage.getName()), sourcePackage);
         	
         	// Dentro do pacote selecionado, itero entre seus elementos, resgatando somente as classes contidas dentro do pacote
             
