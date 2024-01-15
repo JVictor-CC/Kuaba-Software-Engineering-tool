@@ -112,7 +112,7 @@ public class KuabaModule extends AbstractJavaModule {
 	
 	@Override
     public String getModuleImagePath() {
-        return "/res/icons/iconn_24.png";
+        return "/res/icons/kuaba_24.png";
     }
 
 }

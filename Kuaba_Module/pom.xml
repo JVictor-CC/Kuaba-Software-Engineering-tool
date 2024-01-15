@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- definition -->
-	<groupId>ddd.Module</groupId>
-	<artifactId>ddd</artifactId>
-	<version>1.2.38</version>
+	<groupId>kuaba.Module</groupId>
+	<artifactId>KuabaModule</artifactId>
+	<version>1.1.20</version>
 
-	<name>TransformationModule</name>
+	<name>KuabaModule</name>
 
-	<!-- repositoriess -->
+	<!-- repositories -->
 	<repositories>
 		<repository>
 			<id>modelio</id>
@@ -210,4 +210,7 @@
 		</pluginManagement>
 	</build>
 </project>
+<<<<<<< HEAD
 
+=======
+>>>>>>> discussion-model-GUI
