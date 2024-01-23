@@ -1,4 +1,4 @@
-package kuaba.Module.command;
+package kuaba.Module.command.transformation;
 
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.module.IModule;

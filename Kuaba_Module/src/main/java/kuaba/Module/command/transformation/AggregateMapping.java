@@ -1,24 +1,20 @@
-package kuaba.Module.command;
+package kuaba.Module.command.transformation;
 
 import org.eclipse.emf.common.util.EList;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.modelio.model.ITransaction;
 import org.modelio.api.module.IModule;
-import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.metamodel.uml.statik.AggregationKind;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Class;
-import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.metamodel.uml.statik.Package;
 
 public class AggregateMapping extends GeneralMapping{
 	
-	public void MapAggregate(IModelingSession session, IModule module, org.modelio.metamodel.uml.statik.Package target, Class element) {
+	public void MapAggregate(IModelingSession session, IModule module, Package target, Class element) {
     	
-		// Resgata o estereotipo "AggregatePart" do metamodelo onde esta contido os estereotipos DDD
-		Stereotype aggregatePartStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "AggregatePart", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-
-		try (ITransaction aggregate = session.createTransaction("Process Aggregate")) {
+		try (ITransaction t = session.createTransaction("Process Aggregate")) {
 			
 			// Resgata a lista de associationEnds do elemento do PSM já criado anteriormente no mapeamento de Entity e Value Objects
 			
@@ -31,11 +27,8 @@ public class AggregateMapping extends GeneralMapping{
 					associationEnd.setAggregation(AggregationKind.KINDISCOMPOSITION);
 				}
 			}
-
-			// efetiva a transação
-            aggregate.commit();
+            t.commit();
         } catch (Exception e) {
-            // Report error to the log
             module.getModuleContext().getLogService().error(e);
         }
 	}

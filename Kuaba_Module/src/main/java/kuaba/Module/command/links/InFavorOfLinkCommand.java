@@ -1,4 +1,4 @@
-package kuaba.Module.command;
+package kuaba.Module.command.links;
 
 import java.util.List;
 

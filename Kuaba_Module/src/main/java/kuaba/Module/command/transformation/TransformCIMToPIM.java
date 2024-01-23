@@ -1,10 +1,9 @@
-package kuaba.Module.command;
+package kuaba.Module.command.transformation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.api.modelio.diagram.style.IStyleHandle;
@@ -21,7 +20,6 @@ import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 import kuaba.Module.diagram.PIMDiagram;
-import kuaba.Module.impl.KuabaModule;
 
 /**
  * Implementation of the IModuleContextualCommand interface.
@@ -67,11 +65,9 @@ public class TransformCIMToPIM extends DefaultModuleCommandHandler {
                 Stereotype PIMPackage = session.getMetamodelExtensions().getStereotype("KuabaModule", "PIMPackage", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Package.class));
                 Package target = session.getModel().createPackage("PIM Package", parent, PIMPackage); 
                                
-              
                 for (MObject element : selectedPackage.getCompositionChildren()) {
                     if (element instanceof Class) {
-                        if (kuabaquestion != null && ((Class) element).isStereotyped(kuabaquestion)) {
-                        
+                        if (kuabaquestion != null && ((Class) element).isStereotyped(kuabaquestion)) {                      
                             processAssociations((Classifier) element, module, target, session);
                         }
                     }
@@ -80,9 +76,7 @@ public class TransformCIMToPIM extends DefaultModuleCommandHandler {
             } catch (Exception e) {
                 module.getModuleContext().getLogService().error(e);
             }
-        } else {
-            MessageDialog.openInformation(null, "ERROR", "Please Select a Package to run this script");
-        }
+        } 
     }
     
     public void processAssociations(Classifier element, IModule module, Package pkg, IModelingSession session) {
@@ -90,21 +84,21 @@ public class TransformCIMToPIM extends DefaultModuleCommandHandler {
         EList<AssociationEnd> associationEnds = element.getOwnedEnd();
         try (ITransaction t = session.createTransaction("Process Package Contents")) {
         	List<Class> createdClasses = new ArrayList<>();
-        	boolean transformationValidator = false;
+        	boolean isTransformValid = false;
 	        for (AssociationEnd associationEnd : associationEnds) {
 	        	if ("A".equals(associationEnd.getName())) {
-	        		transformationValidator = true;
+	        		isTransformValid = true;
 	        		Class newClass = session.getModel().createClass(associationEnd.getTarget().getName(), pkg, null);
 	        		createdClasses.add(newClass);
 	        	}
 	        }
-	        if (transformationValidator) {
+	        if (isTransformValid) {
 	        
-	        	IModuleContext context = KuabaModule.getInstance().getModuleContext(); 
+	        	IModuleContext context = module.getModuleContext();
 	        	IDiagramService diagramService = context.getModelioServices().getDiagramService();
-	        	IStyleHandle style = diagramService.getStyle("PIMStyle");
-	            PIMDiagram proxy = new PIMDiagram(pkg, style, context);
-	        	IDiagramHandle diagramHandler = diagramService.getDiagramHandle(proxy.getElement());
+	        	IStyleHandle style = diagramService.getStyle("PIMPSMStyle");
+	            PIMDiagram pim = new PIMDiagram(pkg, style, context);
+	        	IDiagramHandle diagramHandler = diagramService.getDiagramHandle(pim.getElement());
 
 	        	int X = 0;
 	        	int Y = 200;

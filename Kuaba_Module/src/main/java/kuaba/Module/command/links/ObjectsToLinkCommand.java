@@ -1,4 +1,4 @@
-package kuaba.Module.command;
+package kuaba.Module.command.links;
 
 import java.util.List;
 
@@ -14,13 +14,13 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import kuaba.Module.impl.KuabaModule;
 
-public class SuggestLinkCommand extends DefaultLinkTool {
+public class ObjectsToLinkCommand extends DefaultLinkTool {
 
 	@Override
 	public boolean acceptFirstElement(IDiagramHandle diagramHandle, IDiagramGraphic targetNode) {
 		ModelElement element = (ModelElement) targetNode.getElement();
 		
-		if (element.isStereotyped("KuabaModule", "kuabaIdea")) {
+		if (element.isStereotyped("KuabaModule", "kuabaArgument")) {
 			return true;
 		} else {
 			return false;
@@ -33,12 +33,6 @@ public class SuggestLinkCommand extends DefaultLinkTool {
 		ModelElement targetElement = (ModelElement) targetNode.getElement();
 		
 		if (targetElement.isStereotyped("KuabaModule", "kuabaIdea")) {
-			return true;
-		}
-		else if (targetElement.isStereotyped("KuabaModule", "kuabaArgument")) {
-			return true;
-		}
-		else if (targetElement.isStereotyped("KuabaModule", "kuabaQuestion")) {
 			return true;
 		} else {
 			return false;
@@ -55,8 +49,8 @@ public class SuggestLinkCommand extends DefaultLinkTool {
 		
 		try (ITransaction t = session.createTransaction("Link Creation")) {
             
-			Dependency newLink = session.getModel().createDependency(originElement, targetElement, "KuabaModule", "suggestLink");
-			newLink.setName("Suggest");
+			Dependency newLink = session.getModel().createDependency(originElement, targetElement, "KuabaModule", "objectsTo");
+			newLink.setName("ObjectsTo");
 			
 			List<IDiagramGraphic> diagramHandler = diagramHandle.unmask(newLink, 0, 0);
 			IDiagramLink link = (IDiagramLink) diagramHandler.get(0);
@@ -64,9 +58,9 @@ public class SuggestLinkCommand extends DefaultLinkTool {
 			link.setRoute(path);
 			diagramHandle.save();
 			
-			link.setLinePattern(3);
+			link.setLinePattern(1);
 			link.setLineRadius(5);
-			link.setLineColor("128,128,128");
+			link.setLineColor("255,160,122");
             t.commit();
            
         } catch (Exception e) {

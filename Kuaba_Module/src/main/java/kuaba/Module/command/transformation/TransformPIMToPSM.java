@@ -1,7 +1,6 @@
-package kuaba.Module.command;
+package kuaba.Module.command.transformation;
 
 import java.util.List;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.module.IModule;
 import org.modelio.api.module.command.DefaultModuleCommandHandler;
@@ -13,11 +12,9 @@ import org.modelio.api.modelio.model.ITransaction;
 
 
 
-public class TransformationCommand extends DefaultModuleCommandHandler {
+public class TransformPIMToPSM extends DefaultModuleCommandHandler {
 	
-    private static final String error = null;
-
-	public TransformationCommand() {
+    public TransformPIMToPSM() {
         super();
     }
 
@@ -35,14 +32,9 @@ public class TransformationCommand extends DefaultModuleCommandHandler {
     @Override
     public void actionPerformed(List<MObject> selectedElements, IModule module) {
     	
-    	// Resgata a sessão atual da Modelio
         IModelingSession session = module.getModuleContext().getModelingSession();
-
-        // Resgata o elemento selecionado na aba de seleção da ferramenta, checando se ele foi executado em um pacote
         if (selectedElements.size() == 1 && selectedElements.get(0) instanceof Package) {
             
-            // Resgata a referência do pacote em que o comando é executado
-
         	Package selectedPackage = (Package) selectedElements.get(0);
         	Package parent = (Package) selectedPackage.getOwner();
             
@@ -55,12 +47,7 @@ public class TransformationCommand extends DefaultModuleCommandHandler {
                 t.commit();
         	} catch (Exception e) {
         		module.getModuleContext().getLogService().error(e);
-        	}
-        	
-            	
-       } else {
-            	// Exibe uma mensagem de erro para o usuário, informando para selecionar um pacote
-            	MessageDialog.openInformation(null, "ERROR", "Please Select a Package to run this script");
+        	}      	
         }
     }
 
@@ -71,11 +58,6 @@ public class TransformationCommand extends DefaultModuleCommandHandler {
         	
          	// resgata os estereotipos do DDD dentro do metamodelo, criando uma referência de cada um deles
         	
-            Stereotype entityStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "Entity", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-        	Stereotype valueObjectStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "ValueObject", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-        	Stereotype serviceStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "Service", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-         	Stereotype aggregateRootStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "AggregateRoot", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-
         	
         	// Dentro do pacote selecionado, itero entre seus elementos, resgatando somente as classes contidas dentro do pacote
             
@@ -97,12 +79,10 @@ public class TransformationCommand extends DefaultModuleCommandHandler {
                 		AggregateMapping mp = new AggregateMapping();
                 		mp.MapAggregate(session, module, target, (Class) element);
                 	}
-
                 }
             }
             t.commit();
         } catch (Exception e) {
-        	// Reporta erro ao processar a transação
             module.getModuleContext().getLogService().error(e);
         }
     }

@@ -6,23 +6,23 @@
     </ClassPath>
     <Profiles>
         <Profile uid="dce0ec6c-d3d0-47d2-8308-4e462deddf2d" id="ProjectStructure">
-            <Stereotype name="KuabaDiagramBase" metaclass="StaticDiagram" owner-stereotype="KuabaElement" is-hidden="false" label="Kuaba Model" uid="e33cb0ef-7003-4579-8739-638c171ab891" is-abstract="false">
+            <Stereotype name="KuabaDiagramBase" metaclass="StaticDiagram" owner-stereotype="" is-hidden="false" label="Kuaba Model" uid="e33cb0ef-7003-4579-8739-638c171ab891" is-abstract="false">
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
-            <Stereotype name="CIMPackage" metaclass="Package" owner-stereotype="KuabaElement" is-hidden="false" label="CIM Package" uid="13cafd2d-fe80-4c9d-a6c7-3373ec83ec96" is-abstract="false">
+            <Stereotype name="CIMPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="CIM Package" uid="13cafd2d-fe80-4c9d-a6c7-3373ec83ec96" is-abstract="false">
                 <Icon path="res/icons/dm_package_24.png"/>
                 <Image path="res/icons/dm_package_24.png"/>
             </Stereotype>
-            <Stereotype name="KuabaPackage" metaclass="Package" owner-stereotype="KuabaElement" is-hidden="false" label="Kuaba Package" uid="bdc77e48-78d4-4b46-a97a-bf8c0295a3c6" is-abstract="false">
+            <Stereotype name="KuabaPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="Kuaba Package" uid="bdc77e48-78d4-4b46-a97a-bf8c0295a3c6" is-abstract="false">
                 <Icon path="res/icons/kuaba_package_24.png"/>
                 <Image path="res/icons/kuaba_package_24.png"/>
             </Stereotype>
-            <Stereotype name="PIMPackage" metaclass="Package" owner-stereotype="KuabaElement" is-hidden="false" label="PIM Package" uid="be7159aa-7a62-4253-b74b-cadbf14eb9b4" is-abstract="false">
+            <Stereotype name="PIMPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="PIM Package" uid="be7159aa-7a62-4253-b74b-cadbf14eb9b4" is-abstract="false">
                 <Icon path="res/icons/pim_package_24.png"/>
                 <Image path="res/icons/pim_package_24.png"/>
             </Stereotype>
-            <Stereotype name="PSMPackage" metaclass="Package" owner-stereotype="KuabaElement" is-hidden="false" label="PSM Package" uid="42d6abb9-e475-4c3f-a557-451f4ee34286" is-abstract="false">
+            <Stereotype name="PSMPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="PSM Package" uid="42d6abb9-e475-4c3f-a557-451f4ee34286" is-abstract="false">
                 <Icon path="res/icons/psm_package_24.png"/>
                 <Image path="res/icons/psm_package_24.png"/>
             </Stereotype>
@@ -44,15 +44,15 @@
                 <Icon path=""/>
                 <Image path=""/>
                 <TagTypes>
-                    <TagType name="Text" uid="71bd46de-503a-4e45-a20f-74d36a7c0514" label="Text" parameter-card="1" is-hidden="false" is-signed="false"/>
-                    <TagType name="CreationDate" uid="d385a780-6c3d-4786-be71-ff07c8582677" label="CreationDate" parameter-card="1" is-hidden="false" is-signed="false"/>
+                    <TagType name="Text" uid="71bd46de-503a-4e45-a20f-74d36a7c0514" label="Text" parameter-card="1" is-hidden="true" is-signed="false"/>
+                    <TagType name="CreationDate" uid="d385a780-6c3d-4786-be71-ff07c8582677" label="CreationDate" parameter-card="1" is-hidden="true" is-signed="false"/>
                 </TagTypes>
             </Stereotype>
             <Stereotype name="kuabaQuestion" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Question" uid="a76f8ea9-679c-4326-bd64-894f86e878db">
                 <Icon path="res/icons/question_24.png"/>
                 <Image path="res/icons/question_48.png"/>
                 <TagTypes>
-                    <TagType name="Type" uid="81403e46-5a66-47fa-aa4c-0542ab0f54fa" label="Type" parameter-card="1" is-hidden="false" is-signed="false"/>
+                    <TagType name="Type" uid="81403e46-5a66-47fa-aa4c-0542ab0f54fa" label="Type" parameter-card="1" is-hidden="true" is-signed="false"/>
                 </TagTypes>
             </Stereotype>
             <Stereotype name="kuabaIdea" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Idea" uid="31138b13-dc02-44ea-a065-97b0ce173b5c">
@@ -70,9 +70,9 @@
                 <Icon path=""/>
                 <Image path=""/>
                 <TagTypes>
-                    <TagType name="Accepted" uid="960c88a0-9bfa-4a3b-8851-953fda24ddda" label="Accepted" parameter-card="1" is-hidden="false" is-signed="false"/>
-                    <TagType name="Date" uid="dc5d964e-14da-415f-8639-1f7354aa8720" label="Date" parameter-card="1" is-hidden="false" is-signed="false"/>
-                    <TagType name="Justification" uid="b980497d-9ee5-4de3-b6a4-a37291b5d1ae" label="Justification" parameter-card="1" is-hidden="false" is-signed="false"/>
+                    <TagType name="Accepted" uid="960c88a0-9bfa-4a3b-8851-953fda24ddda" label="Accepted" parameter-card="1" is-hidden="true" is-signed="false"/>
+                    <TagType name="Date" uid="dc5d964e-14da-415f-8639-1f7354aa8720" label="Date" parameter-card="1" is-hidden="true" is-signed="false"/>
+                    <TagType name="Justification" uid="b980497d-9ee5-4de3-b6a4-a37291b5d1ae" label="Justification" parameter-card="1" is-hidden="true" is-signed="false"/>
                 </TagTypes>
             </Stereotype>
             <Stereotype name="inFavorOf" metaclass="Dependency" is-hidden="false" label="In Favor Of Link" uid="bb15befb-1498-4fcf-95bb-54c1f2824e41">
@@ -96,13 +96,13 @@
     </Profiles>
     <Gui>
         <Commands>
-            <Command id="TransformCIMToPIM" label="CIM To PIM" tooltip="Transform the selected discussion model (CIM) to a PIM Model" image="res/icons/pim_transformation_24.png" group="" modify-model="true" group-image="">
+            <Command id="TransformCIMToPIM" label="Transform CIM To PIM" tooltip="Transform the selected discussion model (CIM) to a PIM Model" image="res/icons/pim_transformation_24.png" group="" modify-model="true" group-image="">
                 <Scope metaclass="Package" stereotype="CIMPackage"/>
-                <Handler class="kuaba.Module.command.TransformCIMToPIM"/>
+                <Handler class="kuaba.Module.command.transformation.TransformCIMToPIM"/>
             </Command>
-            <Command id="TransformPIMToPSM" label="PIM To PSM" tooltip="Transform the selected PIM to a PSM" image="res/icons/psm_transformation_24.png" group="" modify-model="true" group-image="">
+            <Command id="TransformPIMToPSM" label="Transform PIM To PSM" tooltip="Transform the selected PIM to a PSM" image="res/icons/psm_transformation_24.png" group="" modify-model="true" group-image="">
                 <Scope metaclass="Package" stereotype="PIMPackage"/>
-                <Handler class="kuaba.Module.command.TransformationCommand"/>
+                <Handler class="kuaba.Module.command.transformation.TransformPIMToPSM"/>
             </Command>
             <Command id="CreateKuabaPackage" label="Kuaba Package" tooltip="Create a Kuaba Package" image="res/icons/kuaba_package_24.png" group="" modify-model="false" group-image="">
                 <Scope metaclass="Project"/>
@@ -142,7 +142,7 @@
                     <HParameter name="name" value="CIM Diagram"/>
                     <HParameter name="metaclass" value="StaticDiagram"/>
                     <HParameter name="stereotype" value="CIMDiagram"/>
-                    <HParameter name="style" value="kuabaStyle"/>
+                    <HParameter name="style" value="KuabaStyle"/>
                 </Handler>
             </Command>
             <Command id="CreatePIMDiagramCommand" label="Create a PIM Diagram" tooltip="Create a PIM Diagram" image="res/icons/kuaba_pim_24.png" group="" modify-model="true" group-image="">
@@ -151,7 +151,7 @@
                     <HParameter name="name" value="PIM"/>
                     <HParameter name="metaclass" value="ClassDiagram"/>
                     <HParameter name="stereotype" value="PIMDiagram"/>
-                    <HParameter name="style" value="PimStyle"/>
+                    <HParameter name="style" value="PIMPSMStyle"/>
                 </Handler>
             </Command>
             <Command id="CreatePSMDiagramCommand" label="Create a PSM Diagram" tooltip="Create a PSM Diagram" image="res/icons/kuaba_psm_24.png" group="" modify-model="true" group-image="">
@@ -160,7 +160,7 @@
                     <HParameter name="name" value="PSM"/>
                     <HParameter name="metaclass" value="ClassDiagram"/>
                     <HParameter name="stereotype" value="PSMDiagram"/>
-                    <HParameter name="style" value="PimStyle"/>
+                    <HParameter name="style" value="PIMPSMStyle"/>
                 </Handler>
             </Command>
             <Command id="CreateQuestionCommand" label="Create a Question element" tooltip="Create a new Question element on the package" image="res/icons/question_24.png" group="" modify-model="true" group-image="">
@@ -225,7 +225,7 @@
             <Tool id="CreateInFavorOfLink" label="In Favor Of" tooltip="In Favor Of (Link)" image="res/icons/inFavorOf_24.png">
                 <Scope-source metaclass="Class" stereotype="kuabaArgument"/>
                 <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
-                <Handler class="kuaba.Module.command.InFavorOfLinkCommand">
+                <Handler class="kuaba.Module.command.links.InFavorOfLinkCommand">
                     <HParameter name="name" value="In Favor Of"/>
                     <HParameter name="metaclass" value="Dependency"/>
                     <HParameter name="stereotype" value="inFavorOf"/>
@@ -234,7 +234,7 @@
             <Tool id="CreateObjectsToLink" label="Objects To" tooltip="Objects To (Link)" image="res/icons/objectsTo_24.png">
                 <Scope-source metaclass="Class" stereotype="kuabaArgument"/>
                 <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
-                <Handler class="kuaba.Module.command.ObjectsToLinkCommand">
+                <Handler class="kuaba.Module.command.links.ObjectsToLinkCommand">
                     <HParameter name="name" value="Objects To"/>
                     <HParameter name="metaclass" value="Dependency"/>
                     <HParameter name="stereotype" value="objectsTo"/>
@@ -245,7 +245,7 @@
                 <Scope-target metaclass="Class" stereotype="kuabaQuestion"/>
                 <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
                 <Scope-target metaclass="Class" stereotype="kuabaArgument"/>
-                <Handler class="kuaba.Module.command.SuggestLinkCommand">
+                <Handler class="kuaba.Module.command.links.SuggestLinkCommand">
                     <HParameter name="name" value="Suggest"/>
                     <HParameter name="metaclass" value="Dependency"/>
                     <HParameter name="stereotype" value="suggestLink"/>
@@ -258,10 +258,8 @@
             <CommandRef refid="CreateKuabaPackage"/>
             <CommandRef refid="CreateCIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
             <CommandRef refid="CreatePIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
-            <CommandRef refid="CreatePSMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
             <CommandRef refid="CreateCIMDiagramCommand" group="Create Diagrams" group-image="res/icons/create_diagram_24.png"/>
             <CommandRef refid="CreatePIMDiagramCommand" group="Create Diagrams" group-image="res/icons/create_diagram_24.png"/>
-            <CommandRef refid="CreatePSMDiagramCommand" group="Create Diagrams" group-image="res/icons/create_diagram_24.png"/>
             <CommandRef refid="CreateQuestionCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
             <CommandRef refid="CreateIdeaCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
             <CommandRef refid="CreateArgumentCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
@@ -280,7 +278,7 @@
                 <Wizard label="CIM Diagram" icon="res/icons/kuaba_dm_24.png" information="testing info" details="testing details" preview-image="res/images/dm_preview.png">
                     <Scope metaclass="Package" stereotype="CIMPackage"/>
                     <Handler class="kuaba.Module.wizard.CIMDiagramWizardContributor">
-                        <HParameter name="style" value="kuabaStyle"/>
+                        <HParameter name="style" value="KuabaStyle"/>
                     </Handler>
                 </Wizard>
                 <Handler class="StandardCustomizer">
@@ -293,7 +291,7 @@
                 <Wizard label="PIM Diagram" icon="res/icons/kuaba_pim_24.png" information="testing info" details="testing details" preview-image="res/images/pim_preview.png">
                     <Scope metaclass="Package" stereotype="PIMPackage"/>
                     <Handler class="kuaba.Module.wizard.PIMDiagramWizardContributor">
-                        <HParameter name="style" value="PimStyle"/>
+                        <HParameter name="style" value="PIMPSMStyle"/>
                     </Handler>
                 </Wizard>
                 <Handler class="StandardCustomizer">
@@ -306,7 +304,7 @@
                 <Wizard label="PSM Diagram" icon="res/icons/kuaba_psm_24.png" information="testing info" details="testing details" preview-image="res/images/psm_preview.png">
                     <Scope metaclass="Package" stereotype="PSMPackage"/>
                     <Handler class="kuaba.Module.wizard.PSMDiagramWizardContributor">
-                        <HParameter name="style" value="PimStyle"/>
+                        <HParameter name="style" value="PIMPSMStyle"/>
                     </Handler>
                 </Wizard>
                 <Handler class="StandardCustomizer">
@@ -319,11 +317,14 @@
             <PropertyPage id="KuabaPropertyPage" class="kuaba.Module.properties.KuabaPropertyPage" label="Kuaba" image="res/icons/kuaba_propertypage_24.png"/>
         </Views>
     </Gui>
-    <Dependencies/>
+    <Dependencies>
+        <Required name="ModelerModule" version="9.3.00"/>
+        <Required name="JavaDesigner" version="5.3.00"/>
+    </Dependencies>
     <Resources>
         <Styles>
-            <Style id="kuabaStyle" path="res/style/KuabaStyle.style"/>
-            <Style id="PimStyle" path="res/style/KuabaPimStyle.style"/>
+            <Style id="KuabaStyle" path="res/style/KuabaStyle.style"/>
+            <Style id="PIMPSMStyle" path="res/style/KuabaPimPsmStyle.style"/>
         </Styles>
     </Resources>
 </Module>
