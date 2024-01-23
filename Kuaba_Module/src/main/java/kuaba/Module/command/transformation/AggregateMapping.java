@@ -14,6 +14,7 @@ public class AggregateMapping extends GeneralMapping{
 	
 	public void MapAggregate(IModelingSession session, IModule module, Package target, Class element) {
     	
+		Stereotype aggregatePartStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDAggregatePart", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
 		try (ITransaction t = session.createTransaction("Process Aggregate")) {
 			
 			// Resgata a lista de associationEnds do elemento do PSM já criado anteriormente no mapeamento de Entity e Value Objects

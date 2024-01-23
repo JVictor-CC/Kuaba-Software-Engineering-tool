@@ -93,6 +93,28 @@
                 </TagTypes>
             </MetaclassReference>
         </Profile>
+        <Profile uid="1bdec4d2-48f1-4b3d-ae8a-41675c0ec51a" id="DDDProfile">
+            <Stereotype name="DDDAggregatePart" metaclass="Class" owner-stereotype="" is-hidden="false" label="Aggregate Part" uid="fb77b167-9233-4fa2-93b1-c8969ddf429f" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="DDDEntity" metaclass="Class" owner-stereotype="" is-hidden="false" label="Entity" uid="3260de56-8af3-4e55-b719-69a4d5507559" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="DDDValueObject" metaclass="Class" owner-stereotype="" is-hidden="false" label="Value Object" uid="cabe3798-e5a9-4316-b0d0-26112b3bcbc7" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="DDDService" metaclass="Class" owner-stereotype="" is-hidden="false" label="Service" uid="8f99b611-b594-4fb8-b5d6-3053f375b29a" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="DDDAggregateRoot" metaclass="Class" owner-stereotype="" is-hidden="false" label="Aggregate Root" uid="5b5ecac0-25ca-41a3-82df-74d989ac3859" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+        </Profile>
     </Profiles>
     <Gui>
         <Commands>

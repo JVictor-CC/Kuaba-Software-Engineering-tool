@@ -58,6 +58,10 @@ public class TransformPIMToPSM extends DefaultModuleCommandHandler {
         	
          	// resgata os estereotipos do DDD dentro do metamodelo, criando uma referência de cada um deles
         	
+            Stereotype entityStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDEntity", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
+        	Stereotype valueObjectStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDValueObject", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
+        	Stereotype serviceStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDService", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
+         	Stereotype aggregateRootStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDAggregateRoot", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
         	
         	// Dentro do pacote selecionado, itero entre seus elementos, resgatando somente as classes contidas dentro do pacote
             
