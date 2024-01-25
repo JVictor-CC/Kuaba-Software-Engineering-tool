@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Module id="${project.name}" class="kuaba.Module.impl.KuabaModule" binaryversion="5.3.00" version="${project.version}" schema-level="2" uid="0c7cf6f6-eab8-4429-9c2a-eeabe739e198">
+    <ClassPath>
+        <PathEntry path="lib/${project.artifactId}-${project.version}.jar"/>
+        <PathEntry path="lib/commons-lang3-3.1.jar"/>
+    </ClassPath>
+    <Profiles>
+        <Profile uid="dce0ec6c-d3d0-47d2-8308-4e462deddf2d" id="ProjectStructure">
+            <Stereotype name="KuabaDiagramBase" metaclass="StaticDiagram" owner-stereotype="" is-hidden="false" label="Kuaba Model" uid="e33cb0ef-7003-4579-8739-638c171ab891" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="CIMPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="CIM Package" uid="13cafd2d-fe80-4c9d-a6c7-3373ec83ec96" is-abstract="false">
+                <Icon path="res/icons/dm_package_24.png"/>
+                <Image path="res/icons/dm_package_24.png"/>
+            </Stereotype>
+            <Stereotype name="KuabaPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="Kuaba Package" uid="bdc77e48-78d4-4b46-a97a-bf8c0295a3c6" is-abstract="false">
+                <Icon path="res/icons/kuaba_package_24.png"/>
+                <Image path="res/icons/kuaba_package_24.png"/>
+            </Stereotype>
+            <Stereotype name="PIMPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="PIM Package" uid="be7159aa-7a62-4253-b74b-cadbf14eb9b4" is-abstract="false">
+                <Icon path="res/icons/pim_package_24.png"/>
+                <Image path="res/icons/pim_package_24.png"/>
+            </Stereotype>
+            <Stereotype name="PSMPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="PSM Package" uid="42d6abb9-e475-4c3f-a557-451f4ee34286" is-abstract="false">
+                <Icon path="res/icons/psm_package_24.png"/>
+                <Image path="res/icons/psm_package_24.png"/>
+            </Stereotype>
+        </Profile>
+        <Profile uid="572dac48-6a1f-438e-8238-4b309ec2acc7" id="MDEProfile">
+            <Stereotype name="CIMDiagram" metaclass="StaticDiagram" owner-stereotype="KuabaDiagramBase" is-hidden="false" label="CIM Diagram" uid="b6f5d7d6-1ea4-4213-86b7-54121e889b3a">
+                <Icon path="res/icons/kuaba_dm_24.png"/>
+                <Image path="res/icons/kuaba_dm_24.png"/>
+            </Stereotype>
+            <Stereotype name="PIMDiagram" metaclass="ClassDiagram" owner-stereotype="KuabaDiagramBase" is-hidden="false" label="PIM Diagram" uid="a13638c7-18a8-4b92-aa58-2d0b97f454bb">
+                <Icon path="res/icons/kuaba_pim_24.png"/>
+                <Image path="res/icons/kuaba_pim_24.png"/>
+            </Stereotype>
+            <Stereotype name="PSMDiagram" metaclass="ClassDiagram" owner-stereotype="KuabaDiagramBase" is-hidden="false" label="PSM Diagram" uid="9e4872fe-c462-431f-b985-5a99882bee92">
+                <Icon path="res/icons/kuaba_psm_24.png"/>
+                <Image path="res/icons/kuaba_psm_24.png"/>
+            </Stereotype>
+            <Stereotype name="reasoningElement" metaclass="Infrastructure.ModelElement" is-hidden="true" label="Reasoning Element." uid="1917cf0f-8145-4940-8867-35b27a7f28f4" is-abstract="true">
+                <Icon path=""/>
+                <Image path=""/>
+                <TagTypes>
+                    <TagType name="Text" uid="71bd46de-503a-4e45-a20f-74d36a7c0514" label="Text" parameter-card="1" is-hidden="true" is-signed="false"/>
+                    <TagType name="CreationDate" uid="d385a780-6c3d-4786-be71-ff07c8582677" label="CreationDate" parameter-card="1" is-hidden="true" is-signed="false"/>
+                </TagTypes>
+            </Stereotype>
+            <Stereotype name="kuabaQuestion" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Question" uid="a76f8ea9-679c-4326-bd64-894f86e878db">
+                <Icon path="res/icons/question_24.png"/>
+                <Image path="res/icons/question_48.png"/>
+                <TagTypes>
+                    <TagType name="Type" uid="81403e46-5a66-47fa-aa4c-0542ab0f54fa" label="Type" parameter-card="1" is-hidden="true" is-signed="false"/>
+                </TagTypes>
+            </Stereotype>
+            <Stereotype name="kuabaIdea" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Idea" uid="31138b13-dc02-44ea-a065-97b0ce173b5c">
+                <Icon path="res/icons/idea2_24.png"/>
+                <Image path="res/icons/idea2_48.png"/>
+            </Stereotype>
+            <Stereotype name="kuabaArgument" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Argument" uid="53cddfd9-92c1-4564-b8f8-96b3141c5a67">
+                <Icon path="res/icons/arguments_24.png"/>
+                <Image path="res/icons/arguments_48.png"/>
+                <TagTypes>
+                    <TagType name="DisplayArguments" uid="83d3ea64-25b7-437f-810b-dea174963539" label="Display Arguments" parameter-card="1" is-hidden="true" is-signed="false"/>
+                </TagTypes>
+            </Stereotype>
+            <Stereotype name="isAddressedBy" metaclass="AssociationEnd" is-hidden="false" label="Decision Link" uid="3b7bfd94-2d48-439c-a8bc-a430c06ccb7d">
+                <Icon path=""/>
+                <Image path=""/>
+                <TagTypes>
+                    <TagType name="Accepted" uid="960c88a0-9bfa-4a3b-8851-953fda24ddda" label="Accepted" parameter-card="1" is-hidden="true" is-signed="false"/>
+                    <TagType name="Date" uid="dc5d964e-14da-415f-8639-1f7354aa8720" label="Date" parameter-card="1" is-hidden="true" is-signed="false"/>
+                    <TagType name="Justification" uid="b980497d-9ee5-4de3-b6a4-a37291b5d1ae" label="Justification" parameter-card="1" is-hidden="true" is-signed="false"/>
+                </TagTypes>
+            </Stereotype>
+            <Stereotype name="inFavorOf" metaclass="Dependency" is-hidden="false" label="In Favor Of Link" uid="bb15befb-1498-4fcf-95bb-54c1f2824e41">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="objectsTo" metaclass="Dependency" is-hidden="false" label="Objects To Link" uid="2eb37114-c324-4456-b7fd-3306b211aee4">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="suggestLink" metaclass="Dependency" is-hidden="false" label="Suggestion Link" uid="0a8f126a-ce17-4662-9cce-2856cabaae4c">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <MetaclassReference uid="b4c6ed4c-0363-4b69-b5ea-f5e40d9405a8" metaclass="ModelElement">
+                <TagTypes>
+                    <TagType name="TagName_teste" uid="81222391-9df7-426e-a0f9-643a97475923" label="Name_teste" parameter-card="1" is-hidden="false" is-signed="false"/>
+                </TagTypes>
+            </MetaclassReference>
+        </Profile>
+        <Profile uid="1bdec4d2-48f1-4b3d-ae8a-41675c0ec51a" id="DDDProfile">
+            <Stereotype name="DDDAggregatePart" metaclass="Class" owner-stereotype="" is-hidden="false" label="Aggregate Part" uid="fb77b167-9233-4fa2-93b1-c8969ddf429f" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="DDDEntity" metaclass="Class" owner-stereotype="" is-hidden="false" label="Entity" uid="3260de56-8af3-4e55-b719-69a4d5507559" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="DDDValueObject" metaclass="Class" owner-stereotype="" is-hidden="false" label="Value Object" uid="cabe3798-e5a9-4316-b0d0-26112b3bcbc7" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="DDDService" metaclass="Class" owner-stereotype="" is-hidden="false" label="Service" uid="8f99b611-b594-4fb8-b5d6-3053f375b29a" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+            <Stereotype name="DDDAggregateRoot" metaclass="Class" owner-stereotype="" is-hidden="false" label="Aggregate Root" uid="5b5ecac0-25ca-41a3-82df-74d989ac3859" is-abstract="false">
+                <Icon path=""/>
+                <Image path=""/>
+            </Stereotype>
+        </Profile>
+    </Profiles>
+    <Gui>
+        <Commands>
+            <Command id="TransformCIMToPIM" label="Transform CIM To PIM" tooltip="Transform the selected discussion model (CIM) to a PIM Model" image="res/icons/pim_transformation_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="CIMPackage"/>
+                <Handler class="kuaba.Module.command.transformation.TransformCIMToPIM"/>
+            </Command>
+            <Command id="TransformPIMToPSM" label="Transform PIM To PSM" tooltip="Transform the selected PIM to a PSM" image="res/icons/psm_transformation_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="PIMPackage"/>
+                <Handler class="kuaba.Module.command.transformation.TransformPIMToPSM"/>
+            </Command>
+            <Command id="CreateKuabaPackage" label="Kuaba Package" tooltip="Create a Kuaba Package" image="res/icons/kuaba_package_24.png" group="" modify-model="false" group-image="">
+                <Scope metaclass="Project"/>
+                <Handler class="ElementCreate">
+                    <HParameter name="name" value="Kuaba Package"/>
+                    <HParameter name="metaclass" value="Package"/>
+                    <HParameter name="stereotype" value="KuabaPackage"/>
+                </Handler>
+            </Command>
+            <Command id="CreateCIMPackage" label="CIM Package" tooltip="Create a Discussion Model (CIM) Package" image="res/icons/dm_package_24.png" group="" modify-model="false" group-image="">
+                <Scope metaclass="Package" stereotype="KuabaPackage"/>
+                <Handler class="ElementCreate">
+                    <HParameter name="name" value="CIM Package"/>
+                    <HParameter name="metaclass" value="Package"/>
+                    <HParameter name="stereotype" value="CIMPackage"/>
+                </Handler>
+            </Command>
+            <Command id="CreatePIMPackage" label="PIM Package" tooltip="Create a PIM Package" image="res/icons/pim_package_24.png" group="" modify-model="false" group-image="">
+                <Scope metaclass="Package" stereotype="KuabaPackage"/>
+                <Handler class="ElementCreate">
+                    <HParameter name="name" value="PIM Package"/>
+                    <HParameter name="metaclass" value="Package"/>
+                    <HParameter name="stereotype" value="PIMPackage"/>
+                </Handler>
+            </Command>
+            <Command id="CreatePSMPackage" label="PSM Package" tooltip="Create a PSM Package" image="res/icons/psm_package_24.png" group="" modify-model="false" group-image="">
+                <Scope metaclass="Package" stereotype="KuabaPackage"/>
+                <Handler class="ElementCreate">
+                    <HParameter name="name" value="PSM Package"/>
+                    <HParameter name="metaclass" value="Package"/>
+                    <HParameter name="stereotype" value="PSMPackage"/>
+                </Handler>
+            </Command>
+            <Command id="CreateCIMDiagramCommand" label="Create a CIM Diagram" tooltip="Creates a new CIM (Discussion Model) on the package" image="res/icons/kuaba_dm_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="CIMPackage"/>
+                <Handler class="DiagramCreate">
+                    <HParameter name="name" value="CIM Diagram"/>
+                    <HParameter name="metaclass" value="StaticDiagram"/>
+                    <HParameter name="stereotype" value="CIMDiagram"/>
+                    <HParameter name="style" value="KuabaStyle"/>
+                </Handler>
+            </Command>
+            <Command id="CreatePIMDiagramCommand" label="Create a PIM Diagram" tooltip="Create a PIM Diagram" image="res/icons/kuaba_pim_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="PIMPackage"/>
+                <Handler class="DiagramCreate">
+                    <HParameter name="name" value="PIM"/>
+                    <HParameter name="metaclass" value="ClassDiagram"/>
+                    <HParameter name="stereotype" value="PIMDiagram"/>
+                    <HParameter name="style" value="PIMPSMStyle"/>
+                </Handler>
+            </Command>
+            <Command id="CreatePSMDiagramCommand" label="Create a PSM Diagram" tooltip="Create a PSM Diagram" image="res/icons/kuaba_psm_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="PSMPackage"/>
+                <Handler class="DiagramCreate">
+                    <HParameter name="name" value="PSM"/>
+                    <HParameter name="metaclass" value="ClassDiagram"/>
+                    <HParameter name="stereotype" value="PSMDiagram"/>
+                    <HParameter name="style" value="PIMPSMStyle"/>
+                </Handler>
+            </Command>
+            <Command id="CreateQuestionCommand" label="Create a Question element" tooltip="Create a new Question element on the package" image="res/icons/question_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="CIMPackage"/>
+                <Handler class="ElementCreate">
+                    <HParameter name="name" value="Question"/>
+                    <HParameter name="metaclass" value="Class"/>
+                    <HParameter name="stereotype" value="kuabaQuestion"/>
+                </Handler>
+            </Command>
+            <Command id="CreateIdeaCommand" label="Create an Idea element" tooltip="Create a new Idea element on the package" image="res/icons/idea2_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="CIMPackage"/>
+                <Handler class="ElementCreate">
+                    <HParameter name="name" value="Idea"/>
+                    <HParameter name="metaclass" value="Class"/>
+                    <HParameter name="stereotype" value="kuabaIdea"/>
+                </Handler>
+            </Command>
+            <Command id="CreateArgumentCommand" label="Create an Argument element" tooltip="Create a new Argument element on the package" image="res/icons/arguments_24.png" group="" modify-model="true" group-image="">
+                <Scope metaclass="Package" stereotype="CIMPackage"/>
+                <Handler class="ElementCreate">
+                    <HParameter name="name" value="Argument"/>
+                    <HParameter name="metaclass" value="Class"/>
+                    <HParameter name="stereotype" value="kuabaArgument"/>
+                </Handler>
+            </Command>
+        </Commands>
+        <Tools>
+            <Tool id="CreateQuestionByPalette" label="Create a Question element" tooltip="Create a new Question element" image="res/icons/question_24.png">
+                <Scope-source metaclass="ModelTree"/>
+                <Handler class="Box">
+                    <HParameter name="name" value="Question"/>
+                    <HParameter name="metaclass" value="Class"/>
+                    <HParameter name="stereotype" value="kuabaQuestion"/>
+                </Handler>
+            </Tool>
+            <Tool id="CreateIdeaByPalette" label="Create an Idea element" tooltip="Create a new Idea element" image="res/icons/idea2_24.png">
+                <Scope-source metaclass="ModelTree"/>
+                <Handler class="Box">
+                    <HParameter name="name" value="Idea"/>
+                    <HParameter name="metaclass" value="Class"/>
+                    <HParameter name="stereotype" value="kuabaIdea"/>
+                </Handler>
+            </Tool>
+            <Tool id="CreateArgumentByPalette" label="Create an Argument Element" tooltip="Create a new Argument element" image="res/icons/arguments_24.png">
+                <Scope-source metaclass="ModelTree"/>
+                <Handler class="Box">
+                    <HParameter name="name" value="Argument"/>
+                    <HParameter name="metaclass" value="Class"/>
+                    <HParameter name="stereotype" value="kuabaArgument"/>
+                </Handler>
+            </Tool>
+            <Tool id="CreateIsAddressedByLink" label="Is Addressed By" tooltip="Is Addressed By (Link)" image="res/icons/isAddressedBy_24.png">
+                <Scope-source metaclass="Class" stereotype="kuabaQuestion"/>
+                <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
+                <Handler class="Link">
+                    <HParameter name="name" value=" "/>
+                    <HParameter name="metaclass" value="AssociationEnd"/>
+                    <HParameter name="stereotype" value="isAddressedBy"/>
+                </Handler>
+            </Tool>
+            <Tool id="CreateInFavorOfLink" label="In Favor Of" tooltip="In Favor Of (Link)" image="res/icons/inFavorOf_24.png">
+                <Scope-source metaclass="Class" stereotype="kuabaArgument"/>
+                <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
+                <Handler class="kuaba.Module.command.links.InFavorOfLinkCommand">
+                    <HParameter name="name" value="In Favor Of"/>
+                    <HParameter name="metaclass" value="Dependency"/>
+                    <HParameter name="stereotype" value="inFavorOf"/>
+                </Handler>
+            </Tool>
+            <Tool id="CreateObjectsToLink" label="Objects To" tooltip="Objects To (Link)" image="res/icons/objectsTo_24.png">
+                <Scope-source metaclass="Class" stereotype="kuabaArgument"/>
+                <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
+                <Handler class="kuaba.Module.command.links.ObjectsToLinkCommand">
+                    <HParameter name="name" value="Objects To"/>
+                    <HParameter name="metaclass" value="Dependency"/>
+                    <HParameter name="stereotype" value="objectsTo"/>
+                </Handler>
+            </Tool>
+            <Tool id="CreateSuggestionLink" label="Suggest" tooltip="Suggest (Link)" image="res/icons/suggest_24.png">
+                <Scope-source metaclass="Class" stereotype="kuabaIdea"/>
+                <Scope-target metaclass="Class" stereotype="kuabaQuestion"/>
+                <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
+                <Scope-target metaclass="Class" stereotype="kuabaArgument"/>
+                <Handler class="kuaba.Module.command.links.SuggestLinkCommand">
+                    <HParameter name="name" value="Suggest"/>
+                    <HParameter name="metaclass" value="Dependency"/>
+                    <HParameter name="stereotype" value="suggestLink"/>
+                </Handler>
+            </Tool>
+        </Tools>
+        <ContextualMenu>
+            <CommandRef refid="TransformCIMToPIM"/>
+            <CommandRef refid="TransformPIMToPSM"/>
+            <CommandRef refid="CreateKuabaPackage"/>
+            <CommandRef refid="CreateCIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
+            <CommandRef refid="CreatePIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
+            <CommandRef refid="CreateCIMDiagramCommand" group="Create Diagrams" group-image="res/icons/create_diagram_24.png"/>
+            <CommandRef refid="CreatePIMDiagramCommand" group="Create Diagrams" group-image="res/icons/create_diagram_24.png"/>
+            <CommandRef refid="CreateQuestionCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
+            <CommandRef refid="CreateIdeaCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
+            <CommandRef refid="CreateArgumentCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
+        </ContextualMenu>
+        <Diagrams>
+            <DiagramType base-diagram="StaticDiagram" stereotype="CIMDiagram">
+                <Palette keepBasePalette="false">
+                    <ToolRef refid="CreateQuestionByPalette" group="Reasoning Elements"/>
+                    <ToolRef refid="CreateIdeaByPalette" group="Reasoning Elements"/>
+                    <ToolRef refid="CreateArgumentByPalette" group="Reasoning Elements"/>
+                    <ToolRef refid="CreateIsAddressedByLink" group="Decision link"/>
+                    <ToolRef refid="CreateInFavorOfLink" group="Argument links"/>
+                    <ToolRef refid="CreateObjectsToLink" group="Argument links"/>
+                    <ToolRef refid="CreateSuggestionLink" group="Suggestion link"/>
+                </Palette>
+                <Wizard label="CIM Diagram" icon="res/icons/kuaba_dm_24.png" information="testing info" details="testing details" preview-image="res/images/dm_preview.png">
+                    <Scope metaclass="Package" stereotype="CIMPackage"/>
+                    <Handler class="kuaba.Module.wizard.CIMDiagramWizardContributor">
+                        <HParameter name="style" value="KuabaStyle"/>
+                    </Handler>
+                </Wizard>
+                <Handler class="StandardCustomizer">
+                    <HParameter name="stereotype" value="CIMDiagram"/>
+                    <HParameter name="metaclass" value="StaticDiagram"/>
+                </Handler>
+            </DiagramType>
+            <DiagramType base-diagram="ClassDiagram" stereotype="PIMDiagram">
+                <Palette keepBasePalette="true"/>
+                <Wizard label="PIM Diagram" icon="res/icons/kuaba_pim_24.png" information="testing info" details="testing details" preview-image="res/images/pim_preview.png">
+                    <Scope metaclass="Package" stereotype="PIMPackage"/>
+                    <Handler class="kuaba.Module.wizard.PIMDiagramWizardContributor">
+                        <HParameter name="style" value="PIMPSMStyle"/>
+                    </Handler>
+                </Wizard>
+                <Handler class="StandardCustomizer">
+                    <HParameter name="stereotype" value="PIMDiagram"/>
+                    <HParameter name="metaclass" value="ClassDiagram"/>
+                </Handler>
+            </DiagramType>
+            <DiagramType base-diagram="ClassDiagram" stereotype="PSMDiagram">
+                <Palette keepBasePalette="true"/>
+                <Wizard label="PSM Diagram" icon="res/icons/kuaba_psm_24.png" information="testing info" details="testing details" preview-image="res/images/psm_preview.png">
+                    <Scope metaclass="Package" stereotype="PSMPackage"/>
+                    <Handler class="kuaba.Module.wizard.PSMDiagramWizardContributor">
+                        <HParameter name="style" value="PIMPSMStyle"/>
+                    </Handler>
+                </Wizard>
+                <Handler class="StandardCustomizer">
+                    <HParameter name="stereotype" value="PSMDiagram"/>
+                    <HParameter name="metaclass" value="ClassDiagram"/>
+                </Handler>
+            </DiagramType>
+        </Diagrams>
+        <Views>
+            <PropertyPage id="KuabaPropertyPage" class="kuaba.Module.properties.KuabaPropertyPage" label="Kuaba" image="res/icons/kuaba_propertypage_24.png"/>
+        </Views>
+    </Gui>
+    <Dependencies>
+        <Required name="ModelerModule" version="9.3.00"/>
+        <Required name="JavaDesigner" version="5.3.00"/>
+    </Dependencies>
+    <Resources>
+        <Styles>
+            <Style id="KuabaStyle" path="res/style/KuabaStyle.style"/>
+            <Style id="PIMPSMStyle" path="res/style/KuabaPimPsmStyle.style"/>
+        </Styles>
+    </Resources>
+</Module>
