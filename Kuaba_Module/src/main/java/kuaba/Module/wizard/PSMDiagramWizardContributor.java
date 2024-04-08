@@ -7,17 +7,19 @@ import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.modelio.model.ITransaction;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.api.module.contributor.ElementDescriptor;
+import org.modelio.api.module.contributor.diagramcreation.AbstractDiagramWizardContributor;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.ClassDiagram;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
+import org.modelio.vcore.smkernel.mapi.MStatus;
 
 import kuaba.Module.api.IKuabaPeerModule;
 import kuaba.Module.diagram.PSMDiagram;
 
-public class PSMDiagramWizardContributor extends KuabaWizardContributor {
+public class PSMDiagramWizardContributor extends AbstractDiagramWizardContributor {
 	
 	@Override
     public AbstractDiagram actionPerformed(ModelElement diagramOwner, String diagramName, String diagramDescription) {
@@ -25,12 +27,13 @@ public class PSMDiagramWizardContributor extends KuabaWizardContributor {
         IModelingSession session = context.getModelingSession();
         IDiagramService diagramService = context.getModelioServices().getDiagramService();
         
-        try (ITransaction t = session.createTransaction("");) {
+        try (ITransaction transaction = session.createTransaction("");) {
             IStyleHandle style = diagramService.getStyle(getStyle());
             PSMDiagram psm = new PSMDiagram(diagramOwner, style, context);
+
             psm.getElement().setName(diagramName);
         	context.getModelioServices().getEditionService().openEditor(psm.getElement());
-            t.commit();
+            transaction.commit();
             return psm.getElement();
             
         } catch (Exception e) {
@@ -47,5 +50,20 @@ public class PSMDiagramWizardContributor extends KuabaWizardContributor {
         IMetamodelExtensions extensions = context.getModelingSession().getMetamodelExtensions();
         Stereotype stereotype = extensions.getStereotype(IKuabaPeerModule.MODULE_NAME, "PSMDiagram", mClass);
         return stereotype != null ? new ElementDescriptor(mClass, stereotype) : null; 
+    }
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	protected boolean checkCanCreateIn(ModelElement owner) {
+		MStatus status = owner.getStatus();
+        return status.isModifiable() || (owner.getMClass().isCmsNode() && status.isCmsManaged());
+	}
+	
+	protected String getStyle() {
+        return getParameters().get("style");
     }
 }

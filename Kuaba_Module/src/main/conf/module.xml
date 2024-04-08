@@ -11,8 +11,8 @@
                 <Image path=""/>
             </Stereotype>
             <Stereotype name="CIMPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="CIM Package" uid="13cafd2d-fe80-4c9d-a6c7-3373ec83ec96" is-abstract="false">
-                <Icon path="res/icons/dm_package_24.png"/>
-                <Image path="res/icons/dm_package_24.png"/>
+                <Icon path="res/icons/cim_package_24.png"/>
+                <Image path="res/icons/cim_package_24.png"/>
             </Stereotype>
             <Stereotype name="KuabaPackage" metaclass="Package" owner-stereotype="" is-hidden="false" label="Kuaba Package" uid="bdc77e48-78d4-4b46-a97a-bf8c0295a3c6" is-abstract="false">
                 <Icon path="res/icons/kuaba_package_24.png"/>
@@ -28,13 +28,13 @@
             </Stereotype>
         </Profile>
         <Profile uid="572dac48-6a1f-438e-8238-4b309ec2acc7" id="MDEProfile">
-            <Stereotype name="CIMDiagram" metaclass="StaticDiagram" owner-stereotype="KuabaDiagramBase" is-hidden="false" label="CIM Diagram" uid="b6f5d7d6-1ea4-4213-86b7-54121e889b3a">
-                <Icon path="res/icons/kuaba_dm_24.png"/>
-                <Image path="res/icons/kuaba_dm_24.png"/>
+            <Stereotype name="CIMDiagram" metaclass="StaticDiagram" owner-stereotype="KuabaDiagramBase" is-hidden="false" label="Kuaba Diagram" uid="b6f5d7d6-1ea4-4213-86b7-54121e889b3a">
+                <Icon path="res/icons/kuaba_propertypage_24.png"/>
+                <Image path="res/icons/kuaba_propertypage_24.png"/>
             </Stereotype>
             <Stereotype name="PIMDiagram" metaclass="ClassDiagram" owner-stereotype="KuabaDiagramBase" is-hidden="false" label="PIM Diagram" uid="a13638c7-18a8-4b92-aa58-2d0b97f454bb">
-                <Icon path="res/icons/kuaba_pim_24.png"/>
-                <Image path="res/icons/kuaba_pim_24.png"/>
+                <Icon path="res/icons/kuaba_pim2_24.png"/>
+                <Image path="res/icons/kuaba_pim2_24.png"/>
             </Stereotype>
             <Stereotype name="PSMDiagram" metaclass="ClassDiagram" owner-stereotype="KuabaDiagramBase" is-hidden="false" label="PSM Diagram" uid="9e4872fe-c462-431f-b985-5a99882bee92">
                 <Icon path="res/icons/kuaba_psm_24.png"/>
@@ -48,18 +48,18 @@
                     <TagType name="CreationDate" uid="d385a780-6c3d-4786-be71-ff07c8582677" label="CreationDate" parameter-card="1" is-hidden="true" is-signed="false"/>
                 </TagTypes>
             </Stereotype>
-            <Stereotype name="kuabaQuestion" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Question" uid="a76f8ea9-679c-4326-bd64-894f86e878db">
+            <Stereotype name="Question" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Question" uid="a76f8ea9-679c-4326-bd64-894f86e878db">
                 <Icon path="res/icons/question_24.png"/>
                 <Image path="res/icons/question_48.png"/>
                 <TagTypes>
                     <TagType name="Type" uid="81403e46-5a66-47fa-aa4c-0542ab0f54fa" label="Type" parameter-card="1" is-hidden="true" is-signed="false"/>
                 </TagTypes>
             </Stereotype>
-            <Stereotype name="kuabaIdea" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Idea" uid="31138b13-dc02-44ea-a065-97b0ce173b5c">
+            <Stereotype name="Idea" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Idea" uid="31138b13-dc02-44ea-a065-97b0ce173b5c">
                 <Icon path="res/icons/idea2_24.png"/>
                 <Image path="res/icons/idea2_48.png"/>
             </Stereotype>
-            <Stereotype name="kuabaArgument" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Argument" uid="53cddfd9-92c1-4564-b8f8-96b3141c5a67">
+            <Stereotype name="Argument" metaclass="Class" owner-stereotype="reasoningElement" is-hidden="false" label="Kuaba Argument" uid="53cddfd9-92c1-4564-b8f8-96b3141c5a67">
                 <Icon path="res/icons/arguments_24.png"/>
                 <Image path="res/icons/arguments_48.png"/>
                 <TagTypes>
@@ -83,7 +83,7 @@
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
-            <Stereotype name="suggestLink" metaclass="Dependency" is-hidden="false" label="Suggestion Link" uid="0a8f126a-ce17-4662-9cce-2856cabaae4c">
+            <Stereotype name="suggestsLink" metaclass="Dependency" is-hidden="false" label="Suggestion Link" uid="0a8f126a-ce17-4662-9cce-2856cabaae4c">
                 <Icon path=""/>
                 <Image path=""/>
             </Stereotype>
@@ -92,28 +92,6 @@
                     <TagType name="TagName_teste" uid="81222391-9df7-426e-a0f9-643a97475923" label="Name_teste" parameter-card="1" is-hidden="false" is-signed="false"/>
                 </TagTypes>
             </MetaclassReference>
-        </Profile>
-        <Profile uid="1bdec4d2-48f1-4b3d-ae8a-41675c0ec51a" id="DDDProfile">
-            <Stereotype name="DDDAggregatePart" metaclass="Class" owner-stereotype="" is-hidden="false" label="Aggregate Part" uid="fb77b167-9233-4fa2-93b1-c8969ddf429f" is-abstract="false">
-                <Icon path=""/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype name="DDDEntity" metaclass="Class" owner-stereotype="" is-hidden="false" label="Entity" uid="3260de56-8af3-4e55-b719-69a4d5507559" is-abstract="false">
-                <Icon path=""/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype name="DDDValueObject" metaclass="Class" owner-stereotype="" is-hidden="false" label="Value Object" uid="cabe3798-e5a9-4316-b0d0-26112b3bcbc7" is-abstract="false">
-                <Icon path=""/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype name="DDDService" metaclass="Class" owner-stereotype="" is-hidden="false" label="Service" uid="8f99b611-b594-4fb8-b5d6-3053f375b29a" is-abstract="false">
-                <Icon path=""/>
-                <Image path=""/>
-            </Stereotype>
-            <Stereotype name="DDDAggregateRoot" metaclass="Class" owner-stereotype="" is-hidden="false" label="Aggregate Root" uid="5b5ecac0-25ca-41a3-82df-74d989ac3859" is-abstract="false">
-                <Icon path=""/>
-                <Image path=""/>
-            </Stereotype>
         </Profile>
     </Profiles>
     <Gui>
@@ -134,7 +112,7 @@
                     <HParameter name="stereotype" value="KuabaPackage"/>
                 </Handler>
             </Command>
-            <Command id="CreateCIMPackage" label="CIM Package" tooltip="Create a Discussion Model (CIM) Package" image="res/icons/dm_package_24.png" group="" modify-model="false" group-image="">
+            <Command id="CreateCIMPackage" label="Create a CIM Package" tooltip="Create a Discussion Model (CIM) Package" image="res/icons/cim_package_24.png" group="" modify-model="false" group-image="">
                 <Scope metaclass="Package" stereotype="KuabaPackage"/>
                 <Handler class="ElementCreate">
                     <HParameter name="name" value="CIM Package"/>
@@ -142,7 +120,7 @@
                     <HParameter name="stereotype" value="CIMPackage"/>
                 </Handler>
             </Command>
-            <Command id="CreatePIMPackage" label="PIM Package" tooltip="Create a PIM Package" image="res/icons/pim_package_24.png" group="" modify-model="false" group-image="">
+            <Command id="CreatePIMPackage" label="Create a PIM Package" tooltip="Create a PIM Package" image="res/icons/pim_package_24.png" group="" modify-model="false" group-image="">
                 <Scope metaclass="Package" stereotype="KuabaPackage"/>
                 <Handler class="ElementCreate">
                     <HParameter name="name" value="PIM Package"/>
@@ -158,19 +136,19 @@
                     <HParameter name="stereotype" value="PSMPackage"/>
                 </Handler>
             </Command>
-            <Command id="CreateCIMDiagramCommand" label="Create a CIM Diagram" tooltip="Creates a new CIM (Discussion Model) on the package" image="res/icons/kuaba_dm_24.png" group="" modify-model="true" group-image="">
+            <Command id="CreateCIMDiagramCommand" label="Create a Kuaba Diagram" tooltip="Creates a new Kuaba (CIM) Diagrram on the package" image="res/icons/kuaba_propertypage_24.png" group="" modify-model="true" group-image="">
                 <Scope metaclass="Package" stereotype="CIMPackage"/>
                 <Handler class="DiagramCreate">
-                    <HParameter name="name" value="CIM Diagram"/>
+                    <HParameter name="name" value="Kuaba Diagram"/>
                     <HParameter name="metaclass" value="StaticDiagram"/>
                     <HParameter name="stereotype" value="CIMDiagram"/>
                     <HParameter name="style" value="KuabaStyle"/>
                 </Handler>
             </Command>
-            <Command id="CreatePIMDiagramCommand" label="Create a PIM Diagram" tooltip="Create a PIM Diagram" image="res/icons/kuaba_pim_24.png" group="" modify-model="true" group-image="">
+            <Command id="CreatePIMDiagramCommand" label="Create a PIM Diagram" tooltip="Create a PIM Diagram" image="res/icons/kuaba_pim2_24.png" group="" modify-model="true" group-image="">
                 <Scope metaclass="Package" stereotype="PIMPackage"/>
                 <Handler class="DiagramCreate">
-                    <HParameter name="name" value="PIM"/>
+                    <HParameter name="name" value="PIM Diagram"/>
                     <HParameter name="metaclass" value="ClassDiagram"/>
                     <HParameter name="stereotype" value="PIMDiagram"/>
                     <HParameter name="style" value="PIMPSMStyle"/>
@@ -190,7 +168,7 @@
                 <Handler class="ElementCreate">
                     <HParameter name="name" value="Question"/>
                     <HParameter name="metaclass" value="Class"/>
-                    <HParameter name="stereotype" value="kuabaQuestion"/>
+                    <HParameter name="stereotype" value="Question"/>
                 </Handler>
             </Command>
             <Command id="CreateIdeaCommand" label="Create an Idea element" tooltip="Create a new Idea element on the package" image="res/icons/idea2_24.png" group="" modify-model="true" group-image="">
@@ -198,7 +176,7 @@
                 <Handler class="ElementCreate">
                     <HParameter name="name" value="Idea"/>
                     <HParameter name="metaclass" value="Class"/>
-                    <HParameter name="stereotype" value="kuabaIdea"/>
+                    <HParameter name="stereotype" value="Idea"/>
                 </Handler>
             </Command>
             <Command id="CreateArgumentCommand" label="Create an Argument element" tooltip="Create a new Argument element on the package" image="res/icons/arguments_24.png" group="" modify-model="true" group-image="">
@@ -206,7 +184,7 @@
                 <Handler class="ElementCreate">
                     <HParameter name="name" value="Argument"/>
                     <HParameter name="metaclass" value="Class"/>
-                    <HParameter name="stereotype" value="kuabaArgument"/>
+                    <HParameter name="stereotype" value="Argument"/>
                 </Handler>
             </Command>
         </Commands>
@@ -216,7 +194,7 @@
                 <Handler class="Box">
                     <HParameter name="name" value="Question"/>
                     <HParameter name="metaclass" value="Class"/>
-                    <HParameter name="stereotype" value="kuabaQuestion"/>
+                    <HParameter name="stereotype" value="Question"/>
                 </Handler>
             </Tool>
             <Tool id="CreateIdeaByPalette" label="Create an Idea element" tooltip="Create a new Idea element" image="res/icons/idea2_24.png">
@@ -224,7 +202,7 @@
                 <Handler class="Box">
                     <HParameter name="name" value="Idea"/>
                     <HParameter name="metaclass" value="Class"/>
-                    <HParameter name="stereotype" value="kuabaIdea"/>
+                    <HParameter name="stereotype" value="Idea"/>
                 </Handler>
             </Tool>
             <Tool id="CreateArgumentByPalette" label="Create an Argument Element" tooltip="Create a new Argument element" image="res/icons/arguments_24.png">
@@ -232,12 +210,12 @@
                 <Handler class="Box">
                     <HParameter name="name" value="Argument"/>
                     <HParameter name="metaclass" value="Class"/>
-                    <HParameter name="stereotype" value="kuabaArgument"/>
+                    <HParameter name="stereotype" value="Argument"/>
                 </Handler>
             </Tool>
             <Tool id="CreateIsAddressedByLink" label="Is Addressed By" tooltip="Is Addressed By (Link)" image="res/icons/isAddressedBy_24.png">
-                <Scope-source metaclass="Class" stereotype="kuabaQuestion"/>
-                <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
+                <Scope-source metaclass="Class" stereotype="Question"/>
+                <Scope-target metaclass="Class" stereotype="Idea"/>
                 <Handler class="Link">
                     <HParameter name="name" value=" "/>
                     <HParameter name="metaclass" value="AssociationEnd"/>
@@ -245,8 +223,8 @@
                 </Handler>
             </Tool>
             <Tool id="CreateInFavorOfLink" label="In Favor Of" tooltip="In Favor Of (Link)" image="res/icons/inFavorOf_24.png">
-                <Scope-source metaclass="Class" stereotype="kuabaArgument"/>
-                <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
+                <Scope-source metaclass="Class" stereotype="Argument"/>
+                <Scope-target metaclass="Class" stereotype="Idea"/>
                 <Handler class="kuaba.Module.command.links.InFavorOfLinkCommand">
                     <HParameter name="name" value="In Favor Of"/>
                     <HParameter name="metaclass" value="Dependency"/>
@@ -254,23 +232,23 @@
                 </Handler>
             </Tool>
             <Tool id="CreateObjectsToLink" label="Objects To" tooltip="Objects To (Link)" image="res/icons/objectsTo_24.png">
-                <Scope-source metaclass="Class" stereotype="kuabaArgument"/>
-                <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
+                <Scope-source metaclass="Class" stereotype="Argument"/>
+                <Scope-target metaclass="Class" stereotype="Idea"/>
                 <Handler class="kuaba.Module.command.links.ObjectsToLinkCommand">
                     <HParameter name="name" value="Objects To"/>
                     <HParameter name="metaclass" value="Dependency"/>
                     <HParameter name="stereotype" value="objectsTo"/>
                 </Handler>
             </Tool>
-            <Tool id="CreateSuggestionLink" label="Suggest" tooltip="Suggest (Link)" image="res/icons/suggest_24.png">
-                <Scope-source metaclass="Class" stereotype="kuabaIdea"/>
-                <Scope-target metaclass="Class" stereotype="kuabaQuestion"/>
-                <Scope-target metaclass="Class" stereotype="kuabaIdea"/>
-                <Scope-target metaclass="Class" stereotype="kuabaArgument"/>
+            <Tool id="CreateSuggestionLink" label="Suggests" tooltip="Suggests (Link)" image="res/icons/suggest_24.png">
+                <Scope-source metaclass="Class" stereotype="Idea"/>
+                <Scope-source metaclass="Class" stereotype="Question"/>
+                <Scope-source metaclass="Class" stereotype="Argument"/>
+                <Scope-target metaclass="Class" stereotype="Question"/>
                 <Handler class="kuaba.Module.command.links.SuggestLinkCommand">
-                    <HParameter name="name" value="Suggest"/>
+                    <HParameter name="name" value="Suggests"/>
                     <HParameter name="metaclass" value="Dependency"/>
-                    <HParameter name="stereotype" value="suggestLink"/>
+                    <HParameter name="stereotype" value="suggestsLink"/>
                 </Handler>
             </Tool>
         </Tools>
@@ -278,10 +256,10 @@
             <CommandRef refid="TransformCIMToPIM"/>
             <CommandRef refid="TransformPIMToPSM"/>
             <CommandRef refid="CreateKuabaPackage"/>
-            <CommandRef refid="CreateCIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
-            <CommandRef refid="CreatePIMPackage" group="Create Packages" group-image="res/icons/create_package_24.png"/>
-            <CommandRef refid="CreateCIMDiagramCommand" group="Create Diagrams" group-image="res/icons/create_diagram_24.png"/>
-            <CommandRef refid="CreatePIMDiagramCommand" group="Create Diagrams" group-image="res/icons/create_diagram_24.png"/>
+            <CommandRef refid="CreateCIMPackage"/>
+            <CommandRef refid="CreatePIMPackage"/>
+            <CommandRef refid="CreateCIMDiagramCommand"/>
+            <CommandRef refid="CreatePIMDiagramCommand"/>
             <CommandRef refid="CreateQuestionCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
             <CommandRef refid="CreateIdeaCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
             <CommandRef refid="CreateArgumentCommand" group="Create elements" group-image="res/icons/create_elements_24.png"/>
@@ -297,7 +275,7 @@
                     <ToolRef refid="CreateObjectsToLink" group="Argument links"/>
                     <ToolRef refid="CreateSuggestionLink" group="Suggestion link"/>
                 </Palette>
-                <Wizard label="CIM Diagram" icon="res/icons/kuaba_dm_24.png" information="testing info" details="testing details" preview-image="res/images/dm_preview.png">
+                <Wizard label="Kuaba Diagram" icon="res/icons/kuaba_propertypage_24.png" information="testing info" details="testing details" preview-image="res/images/cim_preview.png">
                     <Scope metaclass="Package" stereotype="CIMPackage"/>
                     <Handler class="kuaba.Module.wizard.CIMDiagramWizardContributor">
                         <HParameter name="style" value="KuabaStyle"/>
@@ -310,7 +288,7 @@
             </DiagramType>
             <DiagramType base-diagram="ClassDiagram" stereotype="PIMDiagram">
                 <Palette keepBasePalette="true"/>
-                <Wizard label="PIM Diagram" icon="res/icons/kuaba_pim_24.png" information="testing info" details="testing details" preview-image="res/images/pim_preview.png">
+                <Wizard label="PIM Diagram" icon="res/icons/kuaba_pim2_24.png" information="testing info" details="testing details" preview-image="res/images/pim_preview.png">
                     <Scope metaclass="Package" stereotype="PIMPackage"/>
                     <Handler class="kuaba.Module.wizard.PIMDiagramWizardContributor">
                         <HParameter name="style" value="PIMPSMStyle"/>

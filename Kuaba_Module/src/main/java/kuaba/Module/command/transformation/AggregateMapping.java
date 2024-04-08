@@ -12,16 +12,12 @@ import org.modelio.metamodel.uml.statik.Package;
 
 public class AggregateMapping extends GeneralMapping{
 	
-	public void MapAggregate(IModelingSession session, IModule module, Package target, Class element) {
+	public void mapAggregate(IModelingSession session, IModule module, Package target, Class element) {
     	
-		Stereotype aggregatePartStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDAggregatePart", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
+		Stereotype aggregatePartStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "AggregatePart", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
 		try (ITransaction t = session.createTransaction("Process Aggregate")) {
 			
-			// Resgata a lista de associationEnds do elemento do PSM já criado anteriormente no mapeamento de Entity e Value Objects
-			
 			EList<AssociationEnd> associationEnds = getElementinTarget(session, module, target, element).getOwnedEnd();
-			
-			// Itero entre as associationEnds e checo se o elemento com que ela se relaciona está estereotipado como "AggregatePart", se Sim, altera o tipo de associação para uma Composição
 			
 			for (AssociationEnd associationEnd : associationEnds) {
 				if (associationEnd.getOpposite().getOwner().isStereotyped(aggregatePartStereotype)) {
@@ -32,6 +28,5 @@ public class AggregateMapping extends GeneralMapping{
         } catch (Exception e) {
             module.getModuleContext().getLogService().error(e);
         }
-	}
-	
+	}	
 }

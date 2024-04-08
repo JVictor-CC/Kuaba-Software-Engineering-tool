@@ -16,11 +16,11 @@ import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.metamodel.uml.statik.Package;
 
-public class EntityObjectValueMapping extends GeneralMapping{
+public class EntityValueObjectMapping extends GeneralMapping{
 	
 
 	
-    public void mapEntityObjectValue(IModelingSession session, IModule module, Package target, Class element) {
+    public void mapEntityValueObject(IModelingSession session, IModule module, Package target, Class element) {
     	
     	// Resgata o estereotipo "JavaClass" do metamodelo do "JavaDesigner"
     	Stereotype javaClassStereotype = session.getMetamodelExtensions().getStereotype("JavaDesigner", "JavaClass", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));

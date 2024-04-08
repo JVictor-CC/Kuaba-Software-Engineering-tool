@@ -2,7 +2,6 @@ package kuaba.Module.properties;
 
 import org.modelio.api.module.propertiesPage.IModulePropertyTable;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-
 import kuaba.Module.utils.Utils;
 import kuaba.Module.impl.KuabaPeerModule;
 
@@ -14,10 +13,12 @@ public class KuabaDecisionProperties implements IPropertyContent {
 			if (value == "Accepted") {
 				Utils.setPropertyValue(KuabaPeerModule.MODULE_NAME, "Accepted", value, element);
 				element.setName("A");
+				
 				Utils.setDate(KuabaPeerModule.MODULE_NAME, "Date", element);
 			} else {
 				Utils.setPropertyValue(KuabaPeerModule.MODULE_NAME, "Accepted", value, element);
 				element.setName("R");
+				
 				Utils.setDate(KuabaPeerModule.MODULE_NAME, "Date", element);
 			}
 			

@@ -10,8 +10,6 @@ import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.api.modelio.model.ITransaction;
 
-
-
 public class TransformPIMToPSM extends DefaultModuleCommandHandler {
 	
     public TransformPIMToPSM() {
@@ -42,7 +40,6 @@ public class TransformPIMToPSM extends DefaultModuleCommandHandler {
         		Stereotype PSMPackage = session.getMetamodelExtensions().getStereotype("KuabaModule", "PSMPackage", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Package.class));
                 Package target = session.getModel().createPackage("PSM Package", parent, PSMPackage); 
              
-                //Efetua o processamento com a referência do pacote selecionado
                 processPackageContents(session, selectedPackage, module, target);
                 t.commit();
         	} catch (Exception e) {
@@ -53,26 +50,19 @@ public class TransformPIMToPSM extends DefaultModuleCommandHandler {
 
     public void processPackageContents(IModelingSession session, Package sourcePackage, IModule module, Package target) {
     	
-    	// Cria uma transação para efetuar mudanças dentro do modelo, é um passo obrigatório para que não gere erro quando feita a mudança no modelo, note que ele precisa de um "catch" para tratar um possivel erro na transação do modelo
-        try (ITransaction t = session.createTransaction("Process Package Contents")) {
+    	try (ITransaction t = session.createTransaction("Process Package Contents")) {
+        		
+            Stereotype entityStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "Entity", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
+        	Stereotype valueObjectStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "ValueObject", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
+        	Stereotype serviceStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "Service", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
+         	Stereotype aggregateRootStereotype = session.getMetamodelExtensions().getStereotype("LocalModule", "AggregateRoot", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
         	
-         	// resgata os estereotipos do DDD dentro do metamodelo, criando uma referência de cada um deles
-        	
-            Stereotype entityStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDEntity", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-        	Stereotype valueObjectStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDValueObject", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-        	Stereotype serviceStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDService", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-         	Stereotype aggregateRootStereotype = session.getMetamodelExtensions().getStereotype("KuabaModule", "DDDAggregateRoot", module.getModuleContext().getModelioServices().getMetamodelService().getMetamodel().getMClass(Class.class));
-        	
-        	// Dentro do pacote selecionado, itero entre seus elementos, resgatando somente as classes contidas dentro do pacote
-            
             for (MObject element : sourcePackage.getCompositionChildren()) {
                 if (element instanceof Class) {
                 	
-                	// efetuo a checagem para cada elemento do pacote, mapeando eles de forma diferente de acordo com o estereotipo do DDD
-                	
                 	if (entityStereotype != null && ((Class) element).isStereotyped(entityStereotype) || valueObjectStereotype != null && ((Class) element).isStereotyped(valueObjectStereotype)) {
-                		EntityObjectValueMapping mapping = new EntityObjectValueMapping();
-                		mapping.mapEntityObjectValue(session, module, target, (Class) element);
+                		EntityValueObjectMapping mapping = new EntityValueObjectMapping();
+                		mapping.mapEntityValueObject(session, module, target, (Class) element);
                 	}
                    
                 	if (serviceStereotype != null && ((Class) element).isStereotyped(serviceStereotype)) {
@@ -81,7 +71,7 @@ public class TransformPIMToPSM extends DefaultModuleCommandHandler {
                 	}
                 	if (aggregateRootStereotype != null && ((Class) element).isStereotyped(aggregateRootStereotype)) {
                 		AggregateMapping mp = new AggregateMapping();
-                		mp.MapAggregate(session, module, target, (Class) element);
+                		mp.mapAggregate(session, module, target, (Class) element);
                 	}
                 }
             }
@@ -90,7 +80,4 @@ public class TransformPIMToPSM extends DefaultModuleCommandHandler {
             module.getModuleContext().getLogService().error(e);
         }
     }
-     
-
-    
 }

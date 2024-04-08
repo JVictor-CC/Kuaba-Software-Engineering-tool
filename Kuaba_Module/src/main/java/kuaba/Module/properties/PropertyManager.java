@@ -6,13 +6,13 @@ import kuaba.Module.properties.*;
 public class PropertyManager {
 	
 	public static IPropertyContent getPalette(ModelElement element) {
-		if (element.isStereotyped("KuabaModule","kuabaQuestion")) {
+		if (element.isStereotyped("KuabaModule","Question")) {
 			return new KuabaQuestionProperties();
 		}
-		if (element.isStereotyped("KuabaModule","kuabaIdea")) {
+		if (element.isStereotyped("KuabaModule","Idea")) {
 			return new KuabaIdeaProperties();
 		}
-		if (element.isStereotyped("KuabaModule","kuabaArgument")) {
+		if (element.isStereotyped("KuabaModule","Argument")) {
 			return new KuabaArgumentProperties();
 		}
 		if (element.isStereotyped("KuabaModule","isAddressedBy")) {
