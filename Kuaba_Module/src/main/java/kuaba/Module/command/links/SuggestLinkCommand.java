@@ -20,7 +20,13 @@ public class SuggestLinkCommand extends DefaultLinkTool {
 	public boolean acceptFirstElement(IDiagramHandle diagramHandle, IDiagramGraphic targetNode) {
 		ModelElement element = (ModelElement) targetNode.getElement();
 		
-		if (element.isStereotyped("KuabaModule", "kuabaIdea")) {
+		if (element.isStereotyped("KuabaModule", "Idea")) {
+			return true;
+		}
+		else if (element.isStereotyped("KuabaModule", "Argument")) {
+			return true;
+		}
+		else if (element.isStereotyped("KuabaModule", "Question")) {
 			return true;
 		} else {
 			return false;
@@ -32,13 +38,7 @@ public class SuggestLinkCommand extends DefaultLinkTool {
 		
 		ModelElement targetElement = (ModelElement) targetNode.getElement();
 		
-		if (targetElement.isStereotyped("KuabaModule", "kuabaIdea")) {
-			return true;
-		}
-		else if (targetElement.isStereotyped("KuabaModule", "kuabaArgument")) {
-			return true;
-		}
-		else if (targetElement.isStereotyped("KuabaModule", "kuabaQuestion")) {
+		if (targetElement.isStereotyped("KuabaModule", "Question")) {
 			return true;
 		} else {
 			return false;
@@ -55,8 +55,8 @@ public class SuggestLinkCommand extends DefaultLinkTool {
 		
 		try (ITransaction t = session.createTransaction("Link Creation")) {
             
-			Dependency newLink = session.getModel().createDependency(originElement, targetElement, "KuabaModule", "suggestLink");
-			newLink.setName("Suggest");
+			Dependency newLink = session.getModel().createDependency(originElement, targetElement, "KuabaModule", "suggestsLink");
+			newLink.setName("Suggests");
 			
 			List<IDiagramGraphic> diagramHandler = diagramHandle.unmask(newLink, 0, 0);
 			IDiagramLink link = (IDiagramLink) diagramHandler.get(0);

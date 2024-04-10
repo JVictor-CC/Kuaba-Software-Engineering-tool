@@ -20,7 +20,7 @@ public class ObjectsToLinkCommand extends DefaultLinkTool {
 	public boolean acceptFirstElement(IDiagramHandle diagramHandle, IDiagramGraphic targetNode) {
 		ModelElement element = (ModelElement) targetNode.getElement();
 		
-		if (element.isStereotyped("KuabaModule", "kuabaArgument")) {
+		if (element.isStereotyped("KuabaModule", "Argument")) {
 			return true;
 		} else {
 			return false;
@@ -32,7 +32,7 @@ public class ObjectsToLinkCommand extends DefaultLinkTool {
 		
 		ModelElement targetElement = (ModelElement) targetNode.getElement();
 		
-		if (targetElement.isStereotyped("KuabaModule", "kuabaIdea")) {
+		if (targetElement.isStereotyped("KuabaModule", "Idea")) {
 			return true;
 		} else {
 			return false;
